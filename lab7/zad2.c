@@ -17,13 +17,13 @@ char** podziel(char* lancuch, int n)
             if(strcmp(buff, slowa[j])==0)
                 nowy=0;
         }
-    if(nowy)
-    {
-        slowa[i-1] = buff;
-        i++;
-    }
-    buff = strtok(NULL, " ,:;.");
-    }
+        if(nowy)
+        {
+            slowa[i-1] = buff;
+            i++;
+        }
+        buff = strtok(NULL, " ,:;.");
+        }
     return slowa;
 }
 
@@ -61,6 +61,7 @@ char* arg = argv[1];
 char**wynik = podziel(arg, strlen(arg));
 sort(wynik, strlen(arg));
 char* string = sklej (wynik, strlen(arg));
+printf("%s\n", string);
 free (string);
 
     return 0;
