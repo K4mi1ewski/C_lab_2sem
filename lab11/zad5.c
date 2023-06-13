@@ -65,10 +65,19 @@ Node* fun(Node**head,char val){
         next = temp->next;
         if((temp->value == val) ||(temp->value == val-32))
         {
+            if(temp==*head)
+            {
+                new = add_end(new,temp);
+                *head=next;
+                temp=next;
+            }
+            else
+            {
             new = add_end (new, temp);
             if(prev)
                 prev->next = next;
             temp = next;
+            }
         }
         else
         {
@@ -89,6 +98,8 @@ add_front(&head, 'a');
 add_front(&head, 'a');
 add_front(&head, 'A');
 add_front(&head, 'd');
+add_front(&head, 'A');
+add_front(&head, 'a');
 printlist(head);
 Node* left = fun(&head, 'a');
 printlist(head);
