@@ -4,7 +4,7 @@ void print_stack(struct tnode* head)
 {
     if(head==NULL)
         {
-            printf("NULL\n");
+            printf("NULL->");
             return;
         }
     print_stack(head->next);
